@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test - MANSU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⌨️ TYPING TEST</h1>
+            <p class="subtitle">Test by <span class="brand">MANSU</span></p>
+        </header>
+
+        <main>
+            <!-- Time Selection Screen -->
+            <div id="timeSelectionScreen" class="screen active">
+                <div class="time-selection">
+                    <h2>Select Test Duration</h2>
+                    <div class="time-buttons">
+                        <button class="time-btn" onclick="selectTime(10)">10 Min</button>
+                        <button class="time-btn" onclick="selectTime(20)">20 Min</button>
+                        <button class="time-btn" onclick="selectTime(30)">30 Min</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Test Screen -->
+            <div id="typingScreen" class="screen">
+                <div class="timer-section">
+                    <div class="timer" id="timer">00:00</div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat">
+                        <span class="stat-label">WPM</span>
+                        <span class="stat-value" id="wpm">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy</span>
+                        <span class="stat-value" id="accuracy">100%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Mistakes</span>
+                        <span class="stat-value" id="mistakes">0</span>
+                    </div>
+                </div>
+
+                <textarea id="typingInput" class="typing-area" placeholder="Start typing here. Paste your text from your book..." spellcheck="false"></textarea>
+
+                <div class="char-count" id="charCount">Characters: 0 | Words: 0</div>
+
+                <div class="controls">
+                    <button class="btn btn-pause" onclick="pauseTest()">Pause</button>
+                    <button class="btn btn-finish" onclick="finishTest()">Finish Test</button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="resultsScreen" class="screen">
+                <div class="results-container">
+                    <h2>Test Results</h2>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-label">Words Per Minute</div>
+                            <div class="result-value" id="resultWPM">0</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Accuracy</div>
+                            <div class="result-value" id="resultAccuracy">0%</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Total Time</div>
+                            <div class="result-value" id="resultTime">00:00</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Total Corrections</div>
+                            <div class="result-value" id="resultCorrections">0</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Total Mistakes</div>
+                            <div class="result-value" id="resultMistakes">0</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Backspace Usage</div>
+                            <div class="result-value" id="resultBackspace">0</div>
+                        </div>
+                    </div>
+                    <div class="error-details" id="errorDetails"></div>
+                    <div class="controls">
+                        <button class="btn btn-primary" onclick="resetTest()">Try Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pause Screen -->
+            <div id="pauseScreen" class="screen overlay">
+                <div class="pause-modal">
+                    <h2>Test Paused</h2>
+                    <p>Your test is paused. You can continue from where you left off.</p>
+                    <div class="controls">
+                        <button class="btn btn-primary" onclick="resumeTest()">Resume Test</button>
+                        <button class="btn btn-danger" onclick="exitTest()">Exit Test</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
